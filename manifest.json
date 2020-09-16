@@ -1,0 +1,17 @@
+{
+  "name": "Make BOJ Great",
+  "version": "1.0",
+  "description": "What a nice extension",
+  "content_scripts":[
+    {
+        "matches":[
+          "https://www.acmicpc.net/*"
+        ],
+        "js":[
+           "change.js"
+        ],
+        "run_at": "document_idle"
+    }
+  ],
+  "manifest_version": 2
+}
