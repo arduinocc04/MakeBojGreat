@@ -43,7 +43,7 @@ function change() {
         else if(node.className == "result-ac ") {
             var a = document.createElement("span");
             a.className = "result-ac "
-            a.appendChild(document.createTextNode("이게 왜맞지"))
+            a.appendChild(document.createTextNode("이게 왜 맞지"))
             element.appendChild(a)
         }
         else if(node.className == "result-rte ") {
