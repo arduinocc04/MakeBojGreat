@@ -8,12 +8,12 @@ function change() {
             continue;
         }
         flag = true;
-        if(!node.childNodes[0].hasChildNodes() && node.className != "result-pac ") { // ce인지, 점수인지 검사.
+        if(node.getAttributeNames()[0] != 'href') { // ce인지, 점수인지 검사.
             flag = false;
             element.removeChild(node);
         }
         if(flag) { // Compile error. for href.
-            if (node.className == "result-ce ") { // 내코드 컴파일 에러
+            if (node.className == "result-ce ") { // 하이퍼 링크 있는 컴파일 에러
                 var n = node.childNodes[0];
                 node.removeChild(n);
                 var a = document.createElement("span")
@@ -37,7 +37,7 @@ function change() {
         else if(node.className == "result-tle ") {
             var a = document.createElement("span");
             a.className = "result-tle "
-            a.appendChild(document.createTextNode("우리 할머니도 그것보다 빠르겠다"))
+            a.appendChild(document.createTextNode("우리 할머니도 그거보다 더 빠르겠다"))
             element.appendChild(a)
         }
         else if(node.className == "result-ac ") {
@@ -117,15 +117,27 @@ function change() {
             a.className = "result-mle ";
             a.appendChild(document.createTextNode("메모리는 "));
             b.className = "result-ac ";
-            b.appendChild(document.createTextNode("이기주의야. "));
+            b.appendChild(document.createTextNode("개인주의야. "));
             c = document.createElement("span");
             c.appendChild(document.createTextNode("채점기는 "));
             d.className = "result-wa ";
-            d.appendChild(document.createTextNode("생각도 안해"));
+            d.appendChild(document.createTextNode("생각도 하지 않아."));
             element.appendChild(a);
             element.appendChild(b);
             element.appendChild(c);
             element.appendChild(d);
+        }
+        else if(node.className == "result-pe ") {
+            var a = document.createElement("span");
+            var b = document.createElement("span");
+            var c = document.createElement("span");
+            var d = document.createElement("span");
+            a.className = "result-pe ";
+            a.appendChild(document.createTextNode("출력 안지킬려 했어? "));
+            b.className = "result-wa ";
+            b.appendChild(document.createTextNode("그런 짓은 하지마."));
+            element.appendChild(a);
+            element.appendChild(b);
         }
     }
 }
